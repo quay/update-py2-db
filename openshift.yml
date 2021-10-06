@@ -1,0 +1,67 @@
+---
+apiVersion: v1
+kind: Template
+metadata:
+  name: quayio-update-banner-job
+parameters:
+- name: DB_HOST_SECRET
+  value: "quayio-stage-57-rds"
+  required: true
+- name: DB_CREDS_SECRET
+  value: "quayio-stage-57-rds"
+  required: true
+- name: IMAGE
+  value: "quay.io/app-sre/quayio-update-py2-db"
+  required: true
+- name: IMAGE_TAG
+  value: ""
+  required: true
+- name: JOB_NAME
+  value: ""
+  required: true
+objects:
+- apiVersion: batch/v1
+  kind: Job
+  metadata:
+    name: quayio-update-py2-db-${JOB_NAME}
+  spec:
+    template:
+      metadata:
+        labels:
+          app: quayio-update-py2-db-${JOB_NAME}
+      spec:
+        backoffLimit: 0
+        completions: 1
+        parallelism: 1
+        restartPolicy: Never
+        containers:
+        - name: quayio-update-py2-db-${JOB_NAME}
+          image: ${IMAGE}:${IMAGE_TAG}
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          env:
+          - name: DB_HOST
+            valueFrom:
+              secretKeyRef:
+                name: ${{DB_HOST_SECRET}}
+                key: db.host
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: ${{DB_CREDS_SECRET}}
+                key: db.user
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: ${{DB_CREDS_SECRET}}
+                key: db.password
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: ${{DB_CREDS_SECRET}}
+                key: db.name
