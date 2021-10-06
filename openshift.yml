@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: quayio-update-banner-job
+  name: quayio-update-py2-db
 parameters:
 - name: DB_HOST_SECRET
   value: "quayio-stage-57-rds"
