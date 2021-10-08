@@ -65,3 +65,8 @@ objects:
               secretKeyRef:
                 name: ${{DB_CREDS_SECRET}}
                 key: db.name
+          - name: DB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: ${{DB_CREDS_SECRET}}
+                key: db.name

@@ -1,2 +1,2 @@
-show create table quay.manifest;
-show create table quay.manifestblob;
+show create table manifest;
+show create table manifestblob;

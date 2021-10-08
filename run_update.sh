@@ -1,2 +1,3 @@
 #!/bin/bash
-mysql -u $DB_USER -h $DB_HOST -p$DB_PASSWORD < update.sql
+
+mysql -u $DB_USER -h $DB_HOST -p$DB_PASSWORD -D $DB_NAME < update.sql
