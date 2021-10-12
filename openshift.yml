@@ -5,10 +5,10 @@ metadata:
   name: quayio-update-py2-db
 parameters:
 - name: DB_HOST_SECRET
-  value: "quayio-stage-57-rds"
+  value: ""
   required: true
 - name: DB_CREDS_SECRET
-  value: "quayio-stage-57-rds"
+  value: ""
   required: true
 - name: IMAGE
   value: "quay.io/app-sre/quayio-update-py2-db"
