@@ -1,6 +1,3 @@
-SET unique_checks=0;
-SET foreign_key_checks=0;
-
 alter table manifest
   add column config_media_type char,
   add column layers_compressed_size bigint;
@@ -30,9 +27,6 @@ create index uploadedblob_expires_at
 
 create index uploadedblob_repository_id
    on uploadedblob (repository_id);
-
-SET unique_checks=1;
-SET foreign_key_checks=1;
 
 show create table uploadedblob;
 show create table manifest;
