@@ -1,3 +1,13 @@
-#!/bin/bash
 
-mysql -u $DB_USER -h $DB_HOST -p$DB_PASSWORD -D $DB_NAME < update.sql
+case $EXECUTION_TYPE in
+    "MANIFEST_RECORD_VALIDATION")
+        mysql -u $DB_USER -h $DB_HOST -p$DB_PASSWORD -D $DB_NAME < ManifestCountValidation.sql
+    ;;
+    "REPLICA_READWRITE_VALIDATION")
+        mysql -u $DB_USER -h $DB_HOST -p$DB_PASSWORD -D $DB_NAME < ValidateReadWrite.sql
+    ;;
+    "UPDATE_DATABASE_SCHEMA")
+        mysql -u $DB_USER -h $DB_HOST -p$DB_PASSWORD -D $DB_NAME < update.sql
+    ;;
+esac
+
