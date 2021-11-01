@@ -70,3 +70,5 @@ objects:
               secretKeyRef:
                 name: ${{DB_CREDS_SECRET}}
                 key: db.name
+          - name: EXECUTION_TYPE
+            key: ${{EXECUTION_TYPE}}
