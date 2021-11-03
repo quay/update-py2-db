@@ -19,6 +19,9 @@ parameters:
 - name: JOB_NAME
   value: ""
   required: true
+- name: EXECUTION_TYPE
+  value: ""
+  required: true
 objects:
 - apiVersion: batch/v1
   kind: Job
