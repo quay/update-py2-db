@@ -1,2 +1,1 @@
-select count(distinct id)
-from quay.manifest;
+select count(distinct id) from manifest;
