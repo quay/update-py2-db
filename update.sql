@@ -5,6 +5,8 @@ alter table manifest
 create index manifestblob_repository_id_blob_id
    on manifestblob (repository_id, blob_id);
 
+Create index manifest_repository_id_config_media_type
+  On quay.manifest (repository_id, config_media_type);
 
 create table uploadedblob
 (
