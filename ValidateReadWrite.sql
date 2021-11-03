@@ -3,5 +3,5 @@ CREATE TABLE test (
 );
 
 insert into test (id) values (1);
-
+select * from test;
 drop table test;
