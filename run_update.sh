@@ -1,7 +1,7 @@
 
 case $EXECUTION_TYPE in
     "SCHEMA_VALIDATION")
-        mysql -u $DB_USER -h $DB_HOST -p"$DB_PASSWORD" -D $DB_NAME < schemaValidation.sql
+        mysql -u $DB_USER -h $DB_HOST -p\'$DB_PASSWORD\' -D $DB_NAME < schemaValidation.sql
     ;;
     "REPLICA_READWRITE_VALIDATION")
         mysql -u $DB_USER -h $DB_HOST -p"$DB_PASSWORD" -D $DB_NAME < ValidateReadWrite.sql
