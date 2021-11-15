@@ -1,3 +1,5 @@
+select * from alembic_version;
+
 select count(distinct id) from manifest;
 
 SHOW INDEX FROM uploadedblob;
